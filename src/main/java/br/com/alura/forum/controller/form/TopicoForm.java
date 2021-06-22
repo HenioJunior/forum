@@ -7,6 +7,8 @@ import com.sun.istack.NotNull;
 import br.com.alura.forum.modelo.Curso;
 import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.CursoRepository;
+import br.com.alura.forum.repository.TopicoRepository;
+
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotEmpty;
@@ -50,4 +52,13 @@ public class TopicoForm {
 		Curso curso = cursoRepository.findByNome(nomeCurso);
 		return new Topico(titulo, mensagem, curso);
 	}
+
+	public Topico atualizar(Long id, TopicoRepository topicoRepository) {
+	    Topico topico = topicoRepository.findById(id).get();
+	        topico.setTitulo(this.titulo);
+	        topico.setMensagem(this.mensagem);
+
+	        return topico;
+	}
+
 }
