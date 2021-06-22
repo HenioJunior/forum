@@ -1,13 +1,25 @@
 package br.com.alura.forum.controller.form;
 
+
+
+import com.sun.istack.NotNull;
+
 import br.com.alura.forum.modelo.Curso;
 import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.CursoRepository;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotEmpty;
 
 public class TopicoForm {
 
+	@NotNull @NotEmpty @Length(min = 5)
 	private String titulo;
+	
+	@NotNull @NotEmpty @Length(min = 5)
 	private String mensagem;
+	
+	@NotNull @NotEmpty
 	private String nomeCurso;
 
 	public String getTitulo() {
