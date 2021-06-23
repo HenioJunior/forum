@@ -1,4 +1,4 @@
-package br.com.alura.forum.controller.form;
+package br.com.alura.forum.dto;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
