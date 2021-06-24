@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.header.writers.frameoptions.StaticAllowFromStrategy;
 
@@ -28,7 +30,10 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter{
 	http.authorizeRequests()
 	.antMatchers(HttpMethod.GET, "/topicos").permitAll()
 	.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
-	.anyRequest().authenticated().and().formLogin();
+	.antMatchers(HttpMethod.POST, "/auth").permitAll()
+	.anyRequest().authenticated()
+	.and().csrf().disable()
+	.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	
 	@Override
