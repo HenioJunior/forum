@@ -1,4 +1,4 @@
-package br.com.alura.forum;
+package br.com.alura;
 
 import org.junit.Assert;
 import org.junit.Test;
