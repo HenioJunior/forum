@@ -12,7 +12,7 @@ public class Curso {
 	private Long id;
 	private String nome;
 	private String categoria;
-		
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -61,4 +61,5 @@ public class Curso {
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
+
 }

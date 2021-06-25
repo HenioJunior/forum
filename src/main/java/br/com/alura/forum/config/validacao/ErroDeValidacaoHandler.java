@@ -18,12 +18,12 @@ public class ErroDeValidacaoHandler {
 	
 	@Autowired
 	private MessageSource messageSource;
-
+	
 	@ResponseStatus(code = HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public List<ErroDeFormularioDto> handle(MethodArgumentNotValidException exception) {
 		List<ErroDeFormularioDto> dto = new ArrayList<>();
-
+		
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		fieldErrors.forEach(e -> {
 			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale());
@@ -33,4 +33,5 @@ public class ErroDeValidacaoHandler {
 		
 		return dto;
 	}
+
 }
