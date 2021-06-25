@@ -9,11 +9,15 @@ import br.com.alura.forum.modelo.Topico;
 import br.com.alura.forum.repository.TopicoRepository;
 
 public class AtualizacaoTopicoForm {
-	
-	@NotNull @NotEmpty @Length(min = 5)
+
+	@NotNull
+	@NotEmpty
+	@Length(min = 5)
 	private String titulo;
-	
-	@NotNull @NotEmpty @Length(min = 10)
+
+	@NotNull
+	@NotEmpty
+	@Length(min = 10)
 	private String mensagem;
 
 	public void setTitulo(String titulo) {
@@ -24,13 +28,14 @@ public class AtualizacaoTopicoForm {
 		this.mensagem = mensagem;
 	}
 
+	@SuppressWarnings("deprecation")
 	public Topico atualizar(Long id, TopicoRepository topicoRepository) {
 		Topico topico = topicoRepository.getOne(id);
-		
+
 		topico.setTitulo(this.titulo);
 		topico.setMensagem(this.mensagem);
-		
+
 		return topico;
 	}
-	
+
 }
