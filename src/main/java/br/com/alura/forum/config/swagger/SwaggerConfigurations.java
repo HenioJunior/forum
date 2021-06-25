@@ -1,6 +1,7 @@
 package br.com.alura.forum.config.swagger;
 
 import br.com.alura.forum.modelo.Usuario;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 @Configuration
 public class SwaggerConfigurations {
 
+    @Bean
     public Docket forumApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
@@ -29,6 +31,5 @@ public class SwaggerConfigurations {
                                 .parameterType("header")
                                 .required(false)
                                 .build()));
-
     }
 }
