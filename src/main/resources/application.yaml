@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: forum
+
+  profiles:
+    active: dev
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
